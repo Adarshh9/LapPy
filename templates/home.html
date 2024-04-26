@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Laptop Price Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../static/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>Laptop Price Predictor</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form id="predictForm" action="{{ url_for('predict')}}" method="post">
+      <select class="company" id="uiCompany" required="required">
+        <option value="">Select Company</option>
+        <option value="Apple">Apple</option>
+        <option value="Dell">Dell</option>
+        <!-- Add more options as needed -->
+      </select><br>
+      
+      <select class="type" id="uiType" required="required">
+        <option value="">Select Type</option>
+        <option value="Ultrabook">Ultrabook</option>
+        <option value="Gaming">Gaming</option>
+        <!-- Add more options as needed -->
+      </select><br>
+      
+      <select class="ram" id="uiRam" required="required">
+        <option value="">Select RAM</option>
+        <!-- Add more options as needed -->
+      </select><br>
+
+      <input type="number" name="weight" placeholder="Weight (kg)" step="0.01" required="required" /><br>
+      
+      <label>Touchscreen: </label>
+      <input type="radio" name="touchscreen" value="1" required="required">Yes
+      <input type="radio" name="touchscreen" value="0" required="required">No<br>
+      
+      <label>IPS: </label>
+      <input type="radio" name="ips" value="1" required="required">Yes
+      <input type="radio" name="ips" value="0" required="required">No<br>
+      
+      <input type="number" name="screensize" placeholder="Screen Size (inches)" step="0.01" required="required" /><br>
+
+      <select class="resolution" id="uiResolution" required="required">
+        <option value="">Select Screen Resolution</option>
+        <!-- Add more options as needed -->
+      </select><br>
+
+      <select class="cpu" id="uiCpu" required="required">
+        <option value="">Select CPU</option>
+        <!-- Add more options as needed -->
+      </select><br>
+      
+      <select class="hdd" id="uiHdd" required="required">
+        <option value="">Select HDD</option>
+        <!-- Add more options as needed -->
+      </select><br>
+
+      <select class="ssd" id="uiSsd" required="required">
+        <option value="">Select SSD</option>
+        <!-- Add more options as needed -->
+      </select><br>
+
+      <select class="gpu" id="uiGpu" required="required">
+        <option value="">Select GPU</option>
+        <!-- Add more options as needed -->
+      </select><br>
+      
+      <select class="os" id="uiOS" required="required">
+        <option value="">Select OS</option>
+        <!-- Add more options as needed -->
+      </select><br>
+
+      <button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+      <div id="uiEstimatedPrice" class="result">
+    </form>
+
+    <br>
+    <br>
+  
+  </div>
+  {{prediction_text}}
+
+  
+  <script src="../static/script.js"></script>
+
+</body>
+</html>
