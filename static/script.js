@@ -42,7 +42,6 @@ function onClickedEstimatePrice() {
     console.log("Estimate price button clicked");
 
     var company = document.getElementById('uiCompany').value;
-    // var weight = parseFloat(document.getElementById('uiWeight').value); // Assuming weight is a numeric input
     var weight = parseFloat(getweightValue());
     var touchscreen = parseInt(gettouchScreenValue());
     var ips = parseInt(getIPSValue()); 
@@ -59,7 +58,7 @@ function onClickedEstimatePrice() {
     var estPrice = document.getElementById("uiEstimatedPrice");
   
     var url = "http://127.0.0.1:5000/predict"; 
-    
+
     $.ajax({
         url: url,
         type: 'POST',

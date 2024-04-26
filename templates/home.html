@@ -10,10 +10,6 @@
   <link rel="stylesheet" href="../static/style.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <style>
-
-  </style>
 </head>
 
 <body>
@@ -21,7 +17,8 @@
     <h1>Laptop Price Predictor</h1>
 
     <!-- Main Input For Receiving Query to our ML -->
-    <form id="predictForm" action="{{ url_for('predict')}}" method="post">
+    <form id="predictForm" action="/predict" method="post">
+      <label for="uiCompany">Company:</label>
       <select class="company" id="uiCompany" required="required">
         <option value="">Select Company</option>
         <option value="Apple">Apple</option>
@@ -29,6 +26,7 @@
         <!-- Add more options as needed -->
       </select><br>
       
+      <label for="uiType">Type:</label>
       <select class="type" id="uiType" required="required">
         <option value="">Select Type</option>
         <option value="Ultrabook">Ultrabook</option>
@@ -36,55 +34,64 @@
         <!-- Add more options as needed -->
       </select><br>
       
+      <label for="uiRam">RAM:</label>
       <select class="ram" id="uiRam" required="required">
         <option value="">Select RAM</option>
         <!-- Add more options as needed -->
       </select><br>
 
-      <input type="number" name="weight" placeholder="Weight (kg)" step="0.01" required="required" /><br>
+      <label for="weight">Weight (kg):</label>
+      <input type="number" name="weight" id="weight" placeholder="Weight (kg)" step="0.01" required="required" /><br>
       
-      <label>Touchscreen: </label>
+      <label>Touchscreen:</label>
       <input type="radio" name="touchscreen" value="1" required="required">Yes
       <input type="radio" name="touchscreen" value="0" required="required">No<br>
       
-      <label>IPS: </label>
+      <label>IPS:</label>
       <input type="radio" name="ips" value="1" required="required">Yes
       <input type="radio" name="ips" value="0" required="required">No<br>
       
-      <input type="number" name="screensize" placeholder="Screen Size (inches)" step="0.01" required="required" /><br>
+      <label for="screensize">Screen Size (inches):</label>
+      <input type="number" name="screensize" id="screensize" placeholder="Screen Size (inches)" step="0.01" required="required" /><br>
 
+      <label for="uiResolution">Screen Resolution:</label>
       <select class="resolution" id="uiResolution" required="required">
         <option value="">Select Screen Resolution</option>
         <!-- Add more options as needed -->
       </select><br>
 
+      <label for="uiCpu">CPU:</label>
       <select class="cpu" id="uiCpu" required="required">
         <option value="">Select CPU</option>
         <!-- Add more options as needed -->
       </select><br>
       
+      <label for="uiHdd">HDD:</label>
       <select class="hdd" id="uiHdd" required="required">
         <option value="">Select HDD</option>
         <!-- Add more options as needed -->
       </select><br>
 
+      <label for="uiSsd">SSD:</label>
       <select class="ssd" id="uiSsd" required="required">
         <option value="">Select SSD</option>
         <!-- Add more options as needed -->
       </select><br>
 
+      <label for="uiGpu">GPU:</label>
       <select class="gpu" id="uiGpu" required="required">
         <option value="">Select GPU</option>
         <!-- Add more options as needed -->
       </select><br>
       
+      <label for="uiOS">OS:</label>
       <select class="os" id="uiOS" required="required">
         <option value="">Select OS</option>
         <!-- Add more options as needed -->
       </select><br>
 
       <button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
-      <div id="uiEstimatedPrice" class="result">
+      <div id="uiEstimatedPrice" class="result"></div>
     </form>
 
     <br>
