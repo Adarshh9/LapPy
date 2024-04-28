@@ -1,4 +1,4 @@
-**Laptop Price Prediction Web Application**
+## **Laptop Price Prediction Web Application**
 
 This web application predicts the price of laptops based on various specifications provided by the user. It utilizes a machine learning model trained on laptop data to make predictions. The application is built using Flask framework for the backend and HTML/CSS/JS for the frontend.
 
